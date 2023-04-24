@@ -78,16 +78,16 @@ export function Fueling() {
 
     //set week starting date and end date
     function createDate(vehicleTypeId) {
-        var currentDate = new Date;
-        var first = currentDate.getDate() - currentDate.getDay();
-        var last = first + 6;
+        let currentDate = new Date;
+        let  first = currentDate.getDate() - currentDate.getDay();
+        let  last = first + 6;
 
-        var firstDay = new Date(currentDate.setDate(first));
-        var lastDay = new Date(currentDate.setDate(last));
+        let  firstDay = new Date(currentDate.setDate(first));
+        let  lastDay = new Date(currentDate.setDate(last));
 
-        var formattedFirstDay = firstDay.toISOString().slice(0, 10);
-        var formattedLastDay = lastDay.toISOString().slice(0, 10);
-        var vehicleId = localStorage.getItem('vid');
+        let  formattedFirstDay = firstDay.toISOString().slice(0, 10);
+        let  formattedLastDay = lastDay.toISOString().slice(0, 10);
+        let vehicleId = localStorage.getItem('vid');
         checkAvailableQuota(formattedFirstDay, formattedLastDay, vehicleId, vehicleTypeId);
 
     }
@@ -101,10 +101,10 @@ export function Fueling() {
 
     //Save fuel amount
     function saveFuelAmount() {
-        var currentDate = new Date;
-        var vehicleId = localStorage.getItem('vid');
-        var date = currentDate.toISOString().slice(0, 10);
-        var data = {
+        let currentDate = new Date;
+        let  vehicleId = localStorage.getItem('vid');
+        let date = currentDate.toISOString().slice(0, 10);
+        let data = {
             "vehicleId": vehicleId,
             "fuelqty": fuelAmountForm.fuelAmount,
             "date": date

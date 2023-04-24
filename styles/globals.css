@@ -23,3 +23,14 @@ a {
 a:hover {
   border-bottom: 1px solid #0076ff;
 }
+.react-tabs__tab-list{
+  border-bottom: none !important;
+}
+.react-tabs__tab {
+  border: none !important;
+  
+}
+.react-tabs__tab--selected {
+  border-bottom-color: #0a58ca !important;
+  border-bottom-style: solid !important;
+}
