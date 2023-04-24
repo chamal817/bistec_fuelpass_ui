@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getVehicle, getAvailableQuota, fulling } from './api/vehicleService'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
+import { faCircleInfo, faGasPump } from '@fortawesome/free-solid-svg-icons';
 
 export function Fueling() {
     const [formData, setFormData] = useState({
@@ -137,8 +137,8 @@ export function Fueling() {
             <div className="row d-flex justify-content-center">
                 <div className="col-md-6 mt-5">
                     <div className="card text-center">
-                        <div className="card-header">
-                            Fulling
+                        <div className="card-header card-header d-flex justify-content-center">
+                            <span className='icon-box me-2'><FontAwesomeIcon icon={faGasPump} /> </span>Fulling
                         </div>
 
                         <div className="card-body">
@@ -181,7 +181,7 @@ export function Fueling() {
                                 </form>)}
 
                             {isError && <div className="alert alert-warning d-flex justify-content-center" role="alert">
-                            <div className='icon-box me-2'><FontAwesomeIcon icon={faCircleInfo} /></div>
+                                <div className='icon-box me-2'><FontAwesomeIcon icon={faCircleInfo} /></div>
                                 Please Enter Valid Number
                             </div>}
                         </div>
