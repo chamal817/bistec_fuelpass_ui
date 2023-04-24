@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { registerVehicle } from './api/vehicleService'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faCar } from '@fortawesome/free-solid-svg-icons';
 
 export function Register() {
     const [formData, setFormData] = useState({
@@ -69,8 +69,8 @@ export function Register() {
             <div className="row d-flex justify-content-center">
                 <div className="col-md-6 mt-5">
                     <div className="card text-center">
-                        <div className="card-header">
-                            REGISTRATION
+                        <div className="card-header d-flex justify-content-center">
+                            <div className='icon-box me-2'> <FontAwesomeIcon icon={faCar} /></div>REGISTRATION
                         </div>
                         <div className="card-body">
                             <form onSubmit={handleSubmit}>
