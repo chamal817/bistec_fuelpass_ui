@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getVehicle, getAvailableQuota, fulling } from './api/vehicleService'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 export function Fueling() {
     const [formData, setFormData] = useState({
@@ -79,14 +80,14 @@ export function Fueling() {
     //set week starting date and end date
     function createDate(vehicleTypeId) {
         let currentDate = new Date;
-        let  first = currentDate.getDate() - currentDate.getDay();
-        let  last = first + 6;
+        let first = currentDate.getDate() - currentDate.getDay();
+        let last = first + 6;
 
-        let  firstDay = new Date(currentDate.setDate(first));
-        let  lastDay = new Date(currentDate.setDate(last));
+        let firstDay = new Date(currentDate.setDate(first));
+        let lastDay = new Date(currentDate.setDate(last));
 
-        let  formattedFirstDay = firstDay.toISOString().slice(0, 10);
-        let  formattedLastDay = lastDay.toISOString().slice(0, 10);
+        let formattedFirstDay = firstDay.toISOString().slice(0, 10);
+        let formattedLastDay = lastDay.toISOString().slice(0, 10);
         let vehicleId = localStorage.getItem('vid');
         checkAvailableQuota(formattedFirstDay, formattedLastDay, vehicleId, vehicleTypeId);
 
@@ -102,7 +103,7 @@ export function Fueling() {
     //Save fuel amount
     function saveFuelAmount() {
         let currentDate = new Date;
-        let  vehicleId = localStorage.getItem('vid');
+        let vehicleId = localStorage.getItem('vid');
         let date = currentDate.toISOString().slice(0, 10);
         let data = {
             "vehicleId": vehicleId,
@@ -179,7 +180,8 @@ export function Fueling() {
 
                                 </form>)}
 
-                            {isError && <div className="alert alert-warning" role="alert">
+                            {isError && <div className="alert alert-warning d-flex justify-content-center" role="alert">
+                            <div className='icon-box me-2'><FontAwesomeIcon icon={faCircleInfo} /></div>
                                 Please Enter Valid Number
                             </div>}
                         </div>

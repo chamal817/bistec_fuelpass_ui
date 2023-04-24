@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { registerVehicle } from './api/vehicleService'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 export function Register() {
     const [formData, setFormData] = useState({
@@ -9,7 +11,7 @@ export function Register() {
 
     });
     const [errors, setErrors] = useState({});
-
+    const [success, setSuccess] = useState(false);;
 
     const validateForm = () => {
         let errors = {};
@@ -31,7 +33,8 @@ export function Register() {
         event.preventDefault();
         const errors = validateForm();
         if (Object.keys(errors).length === 0) {
-            saveVehicle(formData)
+            saveVehicle(formData);
+            saveSuccess();
         } else {
             setErrors(errors);
         }
@@ -54,6 +57,13 @@ export function Register() {
         }
 
     }
+
+    function saveSuccess() {
+        setSuccess(true)
+        setTimeout(() => {
+            setSuccess(false);
+        }, 3000);
+    }
     return (
         <div>
             <div className="row d-flex justify-content-center">
@@ -67,12 +77,12 @@ export function Register() {
                                 <div className="row">
                                     <div className="col-md-6">
                                         <label className='d-flex justify-content-start'>Vehicle Number</label>
-                                        <input type="text" className="form-control mt-1" onChange={handleChange} name="vehicleNumber"  value={formData.vehicleNumber}  placeholder="Vehicle Number" />
+                                        <input type="text" className="form-control mt-1" onChange={handleChange} name="vehicleNumber" value={formData.vehicleNumber} placeholder="Vehicle Number" />
                                         {errors.vehicleNumber && <span className='error-message d-flex justify-content-start'>{errors.vehicleNumber}</span>}
                                     </div>
                                     <div className="col-md-6">
                                         <label className='d-flex justify-content-start'>Vehicle Type</label>
-                                        <select onChange={handleChange} name="vehicleType" value={formData.vehicleType}  className="form-select mt-1">
+                                        <select onChange={handleChange} name="vehicleType" value={formData.vehicleType} className="form-select mt-1">
                                             <option value={0}>Select Type</option>
                                             <option value={1}>Bike</option>
                                             <option value={2}>Car</option>
@@ -93,6 +103,8 @@ export function Register() {
                                     <div className='col-md-4 mt-4'> <button type="submit" className="btn btn-primary d-flex justify-content-start">Submit</button></div>
                                 </div>
                             </form>
+                            {success &&
+                                <div className="alert alert-success d-flex justify-content-center mt-2"><div className='icon-box me-2'><FontAwesomeIcon icon={faCheck} size="sm" /></div>Saved successfully</div>}
                         </div>
                     </div>
                 </div></div>

@@ -14,20 +14,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="card text-center mt-3">
-      <div className="card-body">
-        <Tabs>
-          <TabList>
-            <Tab id="register">Register</Tab>
-            <Tab id="fueling">Fueling</Tab>
-          </TabList>
-          <TabPanel tabId="register">
-            <Register />
-          </TabPanel>
-          <TabPanel tabId="fueling">
-            <Fueling />
-          </TabPanel>
-        </Tabs>
-      </div>
+        <div className="card-body">
+          <Tabs>
+            <TabList>
+              <Tab id="register">Register</Tab>
+              <Tab id="fueling">Fueling</Tab>
+            </TabList>
+            <TabPanel tabid="register">
+              <Register />
+            </TabPanel>
+            <TabPanel tabid="fueling">
+              <Fueling />
+            </TabPanel>
+          </Tabs>
+        </div>
       </div>
     </div>
   );
