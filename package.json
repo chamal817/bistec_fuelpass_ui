@@ -12,7 +12,8 @@
     "bootstrap": "^5.2.3",
     "next": "12.3.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-tabs": "^6.0.1"
   },
   "devDependencies": {
     "eslint": "8.23.1",
