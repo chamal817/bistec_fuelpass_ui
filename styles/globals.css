@@ -34,3 +34,7 @@ a:hover {
   border-bottom-color: #0a58ca !important;
   border-bottom-style: solid !important;
 }
+
+.icon-box{
+  width: 1.5em;
+}
