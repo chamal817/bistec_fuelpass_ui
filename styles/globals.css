@@ -38,3 +38,7 @@ a:hover {
 .icon-box{
   width: 1.5em;
 }
+.error-message{
+
+  color: red;
+}
