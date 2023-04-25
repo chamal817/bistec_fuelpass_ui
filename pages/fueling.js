@@ -30,11 +30,11 @@ export function Fueling() {
         const errors = validateForm();
         if (Object.keys(errors).length === 0) {
             getVehicleDetail();
-
+            createDate();
         } else {
             setErrors(errors);
         }
-        createDate();
+
 
     }
 
@@ -149,7 +149,7 @@ export function Fueling() {
                                     </div>
                                     <div className="col-md-6">
                                         <input type="text" name="vehicleNumber" value={formData.vehicleNumber} onChange={handleChange} className="form-control" />
-                                        {errors.vehicleNumber && <span>{errors.vehicleNumber}</span>}
+                                        {errors.vehicleNumber && <span className='error-message'>{errors.vehicleNumber}</span>}
                                     </div>
                                     <div className="col-md-3">
                                         <span className="form-text">
@@ -168,7 +168,7 @@ export function Fueling() {
                                         </div>
                                         <div className="col-md-6">
                                             <input type="text" name="fuelAmount" value={fuelAmountForm.fuelAmount} onChange={amountHandleChange} className="form-control" />
-                                            {errors.fuelAmount && <span>{errors.fuelAmount}</span>}
+                                            {errors.fuelAmount && <span className='error-message'>{errors.fuelAmount}</span>}
                                         </div>
                                         <div className="col-md-3">
                                             <span className="form-text">
